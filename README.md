@@ -24,7 +24,7 @@ In this space i'll put my answers and general code of the courses that I'm doing
 
     ---
     Notes' labels:
-    :purple_circle: == Current notes' focus
-    :green_circle: == Completed notes
-    :yellow_circle: == Notes being updated
-    :red_circle: == Notes not started yet
+    :purple_circle: == Current notes' focus.
+    :green_circle: == Completed notes.
+    :yellow_circle: == Notes being updated.
+    :red_circle: == Notes not started yet.
