@@ -1,0 +1,1 @@
+this.hi = "cool cool"

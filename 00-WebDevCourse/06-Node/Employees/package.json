@@ -1,0 +1,16 @@
+{
+  "name": "employees",
+  "version": "1.0.0",
+  "description": "learning :)",
+  "main": "employees.js",
+  "scripts": {
+    "start": "nodemon",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "CC0-1.0",
+  "dependencies": {
+    "axios": "^1.2.2"
+  }
+}
