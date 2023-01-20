@@ -13,6 +13,8 @@ In this space i'll put my answers and general code of the courses that I'm doing
 * You can access in: [Curso-Web](https://www.udemy.com/share/1013eS3@v_7gMEN2KwIJnVkTU1FLQXD6o7bMBTHghyaubQxWIzi43l9Cj72AuEMa7evU4ggB/) (paid)
 * My notes of the course: [Notes](https://github.com/alithinos-fylakas/my-studies/tree/main/00-WebDevCourse) :yellow_circle:
 
+
+
 # :date: Courses I wanna do:
 - [ ] MySQL [40 hours]
 * You can access in: [Curso em Vídeo](https://www.cursoemvideo.com/curso/mysql/) (free)
