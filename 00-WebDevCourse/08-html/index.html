@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>index</title>
+</head>
+<body>
+    
+    <header>
+        <h1>HTML exercises</h1>
+    </header>
+
+    <nav>
+        <a href wm-nav="00-exercises/test.html">00 - Test</a> |
+        <a href wm-nav="00-exercises/pureText.html">01 - Text</a> |
+        <a href wm-nav="00-exercises/text2.html">02 - Text</a> |
+        <a href wm-nav="00-exercises/lists.html">03 - Lists</a> |
+        <a href wm-nav="00-exercises/nestedList.html">04 - Nested lists</a> |
+    </nav>
+
+    <section id="content"></section>
+
+    <footer>
+        Modern WEB course
+    </footer>
+
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const content = document.getElementById('content')
+
+            link.onclick = function(e) {
+                e.preventDefault()
+                fetch(link.getAttribute("wm-nav"))
+                    .then(ans => ans.text())
+                    .then(html => content.innerHTML = html)
+            }
+        })
+    </script>
+
+</body>
+</html>
