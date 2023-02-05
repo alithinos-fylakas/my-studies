@@ -1,0 +1,59 @@
+<h1>Project</h1>
+
+<ul class="tree">
+    <li box-click="#backend">
+        Backend
+        <ul box id="backend">
+            <li box-click="#app">
+                app
+                <ul box id="app">
+                    <li>product.js</li>
+                    <li>user.js</li>
+                    <li>sells.js</li>
+                </ul>
+            </li>
+            <li box-click id="#config">
+                config
+                <ul box id="config">
+                    <li>dataBase.js</li>
+                    <li>routes.js</li>
+                    <li>server.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li box-click id="#frontend">
+        Frontend
+        <ul box id="frontend">
+            <li box-click id="#public">
+                public
+                <ul box id="public">
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    console.log("tree...")
+    document.querySelectorAll('[box-click]').forEach(link => {
+            
+            console.log(link)
+
+
+            link.onclick = function(e){
+                console.log(e)
+                console.log(link)
+                console.log(link.id)
+                //const box = link.getElementById(`${link.id}`)
+                const box = link.querySelector(`${link.id}`)
+                if (box.hidden === true) box.hidden = false
+                if (box.hidden === false) box.hidden = true
+            }
+    })
+
+</script>

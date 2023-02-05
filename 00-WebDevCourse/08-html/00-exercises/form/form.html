@@ -1,0 +1,46 @@
+<h1>Form</h1>
+
+<form action="http://127.0.0.1:5500/users" method="POST">
+    <input type="text" name="name">
+    <input type="password" name="password">
+    <textarea name="bio" cols="30" rows="10"></textarea>
+    <div>
+        <input type="radio" name="type" value="admin">Admin
+        <input type="radio" name="type" value="regular">Regular
+        <input type="radio" name="type" value="teacher">Teacher
+    </div>
+
+    <div>
+        <input type="checkbox" name="active">Active
+    </div>
+
+    <select name="state">
+        <option value="">Select</option>
+        <option value="ma">Maranhão</option>
+        <option value="sp">São Paulo</option>
+        <option value="rj">Rio de Janeiro</option>
+    </select>
+
+    <select name="interests" multiple size="7">
+        <option value="js">Javascript</option>
+        <option value="java">Java</option>
+        <option value="python">Python</option>
+        <option value="c">C</option>
+        <option value="rust">Rust</option>
+        <option value="c++">C++</option>
+    </select>
+
+    <button>Include</button>
+</form>
+
+<style>
+    input,
+    textarea,
+    select{
+        display: block;
+        margin-bottom: 1.1em;
+    }
+    input[type=radio], input[type=checkbox]{
+        display: inline;
+    }
+</style>
