@@ -1,6 +1,7 @@
 <h1>Form</h1>
 
-<form action="http://127.0.0.1:5500/users" method="POST">
+<form method="POST">
+    <input type="hidden" name="id" value="3">
     <input type="text" name="name">
     <input type="password" name="password">
     <textarea name="bio" cols="30" rows="10"></textarea>
@@ -30,7 +31,8 @@
         <option value="c++">C++</option>
     </select>
 
-    <button>Include</button>
+    <button formaction="http://127.0.0.1:5500/users">Include</button>
+    <button formaction="http://127.0.0.1:5500/users/3">Modify</button>
 </form>
 
 <style>
