@@ -7,7 +7,98 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        /* ... */
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Oswald', Helvetica;
+        }
+
+        a{
+            text-decoration: none;
+            color: #eee;
+        }
+
+        .cabecalho {
+            position: relative;
+            width: 100%;
+            background-color: #333;
+            display: block;
+            text-align:center;
+        }
+
+        .logo {
+            position: relative;
+            width: 20%;
+            display: inline-block;
+            margin: 1vh;
+            vertical-align: middle;
+        }
+
+        .logo a img{
+            position: relative;
+            width: 100%;
+        }
+
+        .menu-toggle {
+            position: relative;
+            display: none;
+        }
+
+        .menu {
+            font-size: 1.2em;
+            position: relative;
+            display: inline-block;
+            width: 60%;
+            text-align: left;
+            /* height: 100px; */
+            /* height: 100%; */
+            /* margin: 5vh 2vh; */
+            /* vertical-align: middle; */
+        }
+
+        .menu ul li{
+            color: #eee;
+            position: relative;
+            display: inline-block;
+            padding: 2% 4%;
+            vertical-align: middle;
+        }
+
+        .menu ul li:hover{
+            color: #111;
+            background-color: dodgerblue;
+        }
+
+        .menu ul li a {
+            color: inherit;
+        }
+
+        .autenticacao {
+            position: relative;
+            display: inline-block;
+            width: 15%;
+            font-size: 1.2em;
+        }
+
+        .botao{
+            margin: .5vw;
+            padding: 0.5vh 1vw;
+            background-color: tomato;
+            border-radius: 1vh;
+        }
+
+        .destaque:hover {
+            color:#222;
+            background-color: rgb(255, 208, 199);
+        }
+
+        .divider {
+            position: absolute;
+            height: 0.2vh;
+            width: 100%;
+            background-color: #1e90ff;
+        }
     </style>
 </head>
 
@@ -37,14 +128,43 @@
                 </li>
             </ul>
         </nav>
+
         <aside class="autenticacao">
             <a href="#login">Login</a>
             <a href="#registar" class="botao destaque">Registrar</a>
         </aside>
+
+        <div class="divider"></div>
     </header>
 
     <script>
-        // ...
+
+        const a_s = []
+
+        document.querySelectorAll('.menu > ul > li > a').forEach(a => {
+            a_s.push(a)
+        })
+
+        console.log(a_s)
+        a_s.forEach(a => console.log(a.hash))
+        
+        window.addEventListener('hashchange', (h) => {
+            const hash = new URL(document.URL).hash
+
+            a_s.forEach(a => {
+                if (a.hash === hash) {
+                    console.log(a)
+                    console.log(a.offsetParent)
+                    a.style.color = "#111"
+                    a.parentNode.style.backgroundColor = "#1e90ff"
+                } else {
+                    a.style.color = "#eee"
+                    a.parentNode.style.backgroundColor = ""
+                }
+            })
+
+            console.log(hash)
+        })
     </script>
 </body>
 
