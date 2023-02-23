@@ -8,7 +8,7 @@ function slide() {
     slideIndex++
     if (slideIndex > slides.length) { slideIndex = 1 }
     slides[slideIndex - 1].style.display = "block"
-    setTimeout(slide, 2000)
+    setTimeout(slide, 5000)
 }
 
 let slideIndex = 0
