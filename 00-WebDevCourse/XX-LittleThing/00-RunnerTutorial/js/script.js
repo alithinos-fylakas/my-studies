@@ -62,7 +62,7 @@ function statePlayer() {
             hide("tjumping")
             hide("tfalling")
 
-            if (counter >= 1000) {
+            if (counter >= 500) {
                 hide("tdying")
                 player.classList.remove("tdying")
                 player.classList.add("tdead")
@@ -107,21 +107,49 @@ function hide(last) {
     }
 }
 
+function pipeC() {
+    const pipec = document.createElement("img")
+    pipec.classList.add("pipe")
+    pipec.src = pipe.src
+
+    const index = getRndInteger(0, 2)
+    const duration = getRndInteger(2, 10)
+
+    pipec.style.width = `${pipe_width[index]}px`
+    pipec.style.animationDuration = `${duration}s`
+
+    game_board.append(pipec)
+}
+
 const loop = setInterval(() => {
-    const pipePosition = pipe.offsetLeft
+    cooldown += 10
+    if (cooldown >= 1000) {
+        pipeC()
+        cooldown = 0
+    }
+    
+    const pipes = document.querySelectorAll(".pipe")
+
     const playerPosition = Number( window.getComputedStyle(player).bottom.replace("px", "") )
 
-    if (pipePosition > 0 && pipePosition <= 108 && playerPosition + 4 <= 96) {
-        pipe.style.animation = "none"
-        pipe.style.left = `${pipePosition}px`
+    for (p of pipes){
+        const pipePosition = p.offsetLeft
+        if ( pipePosition < 0 ){
+            p.remove()
+        }
 
-        player.style.animation = "none"
-        player.style.bottom = `${playerPosition}px`
-
-        player.className = "player tdying"
-        gameState = false
-
-        clearInterval(loop)
+        if (pipePosition > 0 && pipePosition <= 108 && playerPosition + 4 <= 96) {
+            p.style.animation = "none"
+            p.style.left = `${pipePosition}px`
+    
+            player.style.animation = "none"
+            player.style.bottom = `${playerPosition}px`
+    
+            player.className = "player tdying"
+            gameState = false
+    
+            clearInterval(loop)
+        }
     }
 }, 10)
 
@@ -129,15 +157,15 @@ function cloud(){
     const cloud = document.createElement("div")
     cloud.classList.add("cloud")
 
-    width = getRndInteger(128, 256)
-    height = getRndInteger(64, 128)
-    duration = getRndInteger(10, 20)
+    const width = getRndInteger(128, 256)
+    const height = getRndInteger(64, 128)
+    const duration = getRndInteger(10, 20)
 
     cloud.style.width = `${width}px`
     cloud.style.height = `${height}px`
     cloud.style.animationDuration = `${duration}s`
 
-    game_board.append(cloud)
+    clouds.append(cloud)
 }
 
 const running = document.getElementsByClassName("run")
@@ -151,10 +179,14 @@ let lastState = "trunning"
 let counter = 0
 let MSPF = 84
 let gameState = true
+let cooldown = 0
 
 const player = document.querySelector(".player")
 const pipe = document.querySelector(".pipe")
+const clouds = document.querySelector(".clouds")
 const game_board = document.querySelector(".game_board")
+
+const pipe_width= [32, 64, 96]
 
 window.addEventListener("keydown", (a) => {
     if (a.code === "Space" && player.className === "player trunning") {

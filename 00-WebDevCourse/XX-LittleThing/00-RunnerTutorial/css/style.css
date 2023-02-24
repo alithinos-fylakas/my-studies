@@ -20,10 +20,10 @@
 .pipe {
     position: absolute;
     bottom: 0;
-    width: 96px;
+    /* width: 96px; */
     image-rendering: pixelated;
 
-    animation: pipe 2s infinite linear;
+    animation: pipe linear;
 }
 
 @keyframes pipe {
@@ -57,7 +57,7 @@
 }
 
 .tjumping {
-    animation: jump 1s;
+    animation: jump 2s;
 }
 
 @keyframes jump {
